@@ -4,27 +4,27 @@ stages:
 cache:
     paths:
      - node_modules/
-job1:
-    stage: dev_deploy
-    except:
-        - master
-    tags:
-        - lottery_dev_tag
-    script:
-        - yarn install
-        - yarn run build
-        - cd /data/choujiang
-        - if [ -d "lottery_front" ] ; then 
-        - sudo rm -rf lottery_front
-        - fi
-        - sudo cp -rf /home/gitlab-runner/builds/f72b38c0/0/mobile/easy_front /data/choujiang
+# job1:
+#     stage: dev_deploy
+#     except:
+#         - master
+#     tags:
+#         - lottery_dev_tag
+#     script:
+#         - yarn install
+#         - yarn run build
+#         - cd /data/choujiang
+#         - if [ -d "lottery_front" ] ; then 
+#         - sudo rm -rf lottery_front
+#         - fi
+#         - sudo cp -rf /home/gitlab-runner/builds/f72b38c0/0/mobile/easy_front /data/choujiang
 job2:
     stage: master_deploy
     only:
         - master
-    when: manual
+    # when: manual
     tags:
-        - lottery_master_tag
+        - easy_front_tag
     script:
     script:
         - yarn install
