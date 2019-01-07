@@ -11,7 +11,7 @@ const state = {
   actionFromPath: '',
   pageIndex: 0,
   pageSize: 15,
-  lang: '',
+  lang: 'cn',
   appPosition: 'absolute',
   baseUrl: ''
 }

@@ -1,8 +1,11 @@
 <template>
   <div class="main-page">
     <ali-head :langShow="true" :pageTitle="translate(91, lang)" @onLangChange="onLangChange"></ali-head>
+    <div class="fix-img">
+      <img src="../../../static/img/bg.png" alt="">
+    </div>
     <div class="pt44" :style="{textAlign: 'center'}">
-      <img src="../../../static/img/nianhui.png" alt="">
+      <img :style="{width: '18rem', height: '18rem'}" src="../../../static/img/nianhui.png">
     </div>
     <div class="submit-btn" @click="action('fashion')">{{translate(54, lang)}}</div>
     <div class="submit-btn" @click="action('performs')">{{translate(2, lang)}}</div>

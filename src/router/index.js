@@ -11,6 +11,7 @@ import Profile from '@/page/profile/profile'
 import Fashion from '@/page/fashion/fashion'
 import FashionImgSet from '@/page/fashion/fashionImgSet'
 import FashionStatistic from '@/page/fashion/fashionStatistic'
+import Chat from '@/page/chat/chat'
 
 Vue.use(Router)
 
@@ -25,6 +26,10 @@ export default new Router({
     {
       path: '/login',
       component: Login
+    },
+    {
+      path: '/chat',
+      component: Chat
     },
     {
       path: '/performs',

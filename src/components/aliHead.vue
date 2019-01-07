@@ -41,6 +41,9 @@ export default {
           key: 18
         },
         {
+          key: 104
+        },
+        {
           key: 19
         }
       ]
@@ -136,6 +139,9 @@ export default {
           this.$router.push({path: '/performs'})
           break
         case 2:
+          this.$router.push({path: '/chat'})
+          break
+        case 3:
           this.$axios.post(urls.logout).then((res) => {
             localStorage.removeItem('aliToken')
             this.$store.dispatch('updateUserInfo', '')
@@ -158,6 +164,9 @@ export default {
       }
       if (this.$route.path === '/performs') {
         return 1
+      }
+      if (this.$route.path === '/chat') {
+        return 2
       }
       return 11
     }

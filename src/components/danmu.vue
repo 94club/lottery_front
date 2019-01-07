@@ -1,5 +1,8 @@
 <template>
   <div class="baberrage-stage" v-show="isShow" ref="stage">
+    <div class="fix-img">
+      <img src="../../static/img/danmu.png" alt="">
+    </div>
     <div class="baberrage-top">
       <div v-for="item in topQueue" :style="item.style" :key="item.id" class="baberrage-item" :class="item.barrageStyle">
         <!-- <div class="baberrage-avatar"><img :src="item.avatar"></div> -->
@@ -206,7 +209,7 @@ export default {
       item.currentTime = timestamp
       item.time = 5
       item.speed = this.boxWidthVal / (item.time * 1000)
-      item.width = this.strlen(item.msg) * 9 + 50
+      item.width = this.strlen(item.msg) * 9 + 150
       if (item.type === 0) {
         item.left = this.boxWidthVal
         item.top = parseInt(Math.random() * this.boxHeightVal)
@@ -255,26 +258,23 @@ export default {
     top: 9rem;
     overflow:hidden;
     .baberrage-item {
-      position: absolute;
-      width:auto;
-      display:block;
       color:#000;
-      padding:px2rem(10);
-      .baberrage-avatar {
-        position: absolute;
-        left: px2rem(10);
-        top: px2rem(10);
-        width: px2rem(90);
-        height: px2rem(90);
-        img {
-          width: px2rem(90);
-          height: px2rem(90);
-          border-radius: 50%;
-        }
-      }
+      // .baberrage-avatar {
+        //   position: absolute;
+      //   left: px2rem(10);
+      //   top: px2rem(10);
+      //   width: px2rem(90);
+      //   height: px2rem(90);
+      //   img {
+        //     width: px2rem(90);
+      //     height: px2rem(90);
+      //     border-radius: 50%;
+      //   }
+      // }
       .baberrage-msg{
         line-height: px2rem(40);
         font-size: px2rem(28);
+        padding:px2rem(10);
       }
     }
     .baberrage-item.normal{

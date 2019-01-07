@@ -148,6 +148,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  padding-bottom: 2rem
 }
 .img-item {
   position: relative;
@@ -286,6 +287,9 @@ export default {
   z-index: 2;
   bottom: px2rem(100);
   right: px2rem(0);
+  img {
+    width: 9rem;
+  }
 }
 .fashion {
   width: 100%;

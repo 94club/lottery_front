@@ -1,8 +1,11 @@
 <template>
   <div class="login-page">
     <ali-head :showBack="true" :pageTitle="translate(3, lang)"></ali-head>
-    <div class="pt44" :style="{textAlign: 'center'}">
-      <img src="../../../static/img/2019.png" alt="">
+    <div class="pt54" :style="{textAlign: 'center'}">
+      <!-- <img src="../../../static/img/2019.png" alt=""> -->
+    </div>
+    <div class="fix-img">
+      <img src="../../../static/img/bg.png" alt="">
     </div>
     <div class="input-div">
       <ali-input
@@ -112,6 +115,8 @@ export default {
     margin: 0 auto;
     color:#fff;;
     font-size: px2rem(24);
+    height: px2rem(48);
+    line-height: px2rem(48);
   }
 }
 </style>

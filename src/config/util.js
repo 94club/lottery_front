@@ -567,7 +567,7 @@ const staffArr = [
 const langCn = {
   1: '进入抽奖',
   2: '节目表演',
-  3: '资料',
+  3: '登录',
   4: '返回',
   5: '您的名称:',
   6: '请输入您的用户名',
@@ -667,12 +667,13 @@ const langCn = {
   100: '10s内只能发一次弹幕',
   101: '评分不能为0',
   102: '评论成功',
-  103: '节目编号'
+  103: '节目编号',
+  104: 'EVEB 聊天室'
 }
 const langEn = {
   1: 'Lottery',
   2: 'Performs',
-  3: 'Info',
+  3: 'Login',
   4: 'back',
   5: 'name:',
   6: 'Plaease Input Your Name',
@@ -680,7 +681,7 @@ const langEn = {
   8: 'login',
   9: 'blublublu9',
   10: 'blublublu10',
-  11: 'blublublu11',
+  11: 'language select error',
   12: 'blublublu12',
   13: 'blublublu13',
   14: 'blublublu',
@@ -762,7 +763,8 @@ const langEn = {
   100: 'only can send once in 10 seconds',
   101: 'score should more than 0',
   102: 'comment successful',
-  103: 'perform number'
+  103: 'perform number',
+  104: 'EVEB Chat'
 }
 
 function translate (key, lang) {
@@ -825,7 +827,7 @@ function quickSort (arr, forward, param) {
   return [...quickSort(left, forward, param), pivot, ...quickSort(right, forward, param)]
 }
 const devUrl = 'http://localhost:9091'
-const proUrl = 'http://192.168.1.45:9091'
+const proUrl = 'http://40.83.73.235:9091'
 const mockLuckyList = [
   {
     'username': 'mac1',

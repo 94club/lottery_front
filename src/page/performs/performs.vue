@@ -1,13 +1,10 @@
 <template>
   <div class="perform">
     <ali-head :pageTitle="translate(18, lang)" :showDrawer="true" :showPerformStatistics="userInfo.role===1"></ali-head>
-    <img  class="danmu-out-btn" src="../../../static/img/danmu.png"  :style="{right: danmuOut}" @click="outBarrage">
-    <div class="danmu" :style="{left: danmuIn}">
-      <input class="danmu-text" type="text" placeholder="say something" v-model="danmu">
-      <span class="danmu-btn" @click="sendBarrage">{{translate(88, lang)}}</span>
-      <span class="danmu-in-btn danmu-btn" @click="inBarrage">{{translate(90, lang)}}</span>
-    </div>
     <div class="perform-data pt44 pb1" v-if="performList.length > 0">
+      <div class="fix-img">
+        <img src="../../../static/img/bg.png" alt="">
+      </div>
       <div class="perform-item" v-for="(item, index) in performList" :key="index">
         <span class="trigle"></span>
         <span class="num">{{item.id}}</span>
@@ -18,12 +15,6 @@
         <span class="comment-score" v-if="gradeDetailList[index]">{{translate(77, lang)}}{{gradeDetailList[index]}}</span>
       </div>
     </div>
-    <danmu
-      :isShow= "barrageIsShow"
-      :barrageList = "barrageList"
-      :loop = "barrageLoop"
-      @barrageHide="barrageHide">
-    </danmu>
     <div class="comment-box" v-if="commentBoxShow">
       <div class="mask" @click="boxHide"></div>
       <div class="box-content">
@@ -37,7 +28,6 @@
 </template>
 <script>
 import AliHead from '../../components/aliHead'
-import Danmu from '../../components/danmu'
 import {translate, quickSort} from '../../config/util.js'
 import urls from '../../config/urls.js'
 import AliLoading from '../../components/aliLoading'
@@ -50,14 +40,8 @@ export default {
       gradeDetailList: [],
       score: 0,
       maxScore: 5,
-      danmu: '',
-      barrageIsShow: false,
-      barrageList: [],
-      barrageLoop: false,
-      danmuInputShow: false,
       timer: '',
       lastId: '',
-      canDanmu: true,
       performId: '',
       commentBoxShow: false
     }
@@ -65,8 +49,7 @@ export default {
   components: {
     AliHead,
     AliLoading,
-    StarRating,
-    Danmu
+    StarRating
   },
   created () {
     if (!this.userInfo) {
@@ -75,9 +58,6 @@ export default {
       this.changeLoadingStatus(true)
       this.getPerformList()
     }
-  },
-  destroyed () {
-    clearInterval(this.timer)
   },
   computed: {
     lang () {
@@ -112,52 +92,6 @@ export default {
       'updateAppPosition',
       'changeLoadingStatus'
     ]),
-    // 弹出
-    outBarrage () {
-      this.danmuInputShow = true
-      this.barrageIsShow = true
-      this.timer = setInterval(() => {
-        this.getBarrage()
-      }, 1000 * 3)
-      this.getBarrage()
-    },
-    // 收回
-    inBarrage () {
-      this.danmuInputShow = false
-      this.barrageIsShow = false
-      clearInterval(this.timer)
-    },
-    sendBarrage () {
-      if (this.canDanmu) {
-        this.$axios.post(urls.addDanmu, {msg: this.danmu}).then((res) => {
-          this.canDanmu = false
-          this.danmu = ''
-          this.lastId = res.data
-          setTimeout(() => {
-            this.canDanmu = true
-          }, 1000 * 10)
-        })
-      } else {
-        this.$toast({msg: translate(100, this.lang)})
-      }
-    },
-    getBarrage () {
-      this.$axios.get(urls.getDanmuList).then((res) => {
-        let newInfo = res.data
-        if (newInfo.length > 0) {
-          newInfo.map((item) => {
-            if (item.status === 0) {
-              this.barrageList.unshift(item)
-            }
-          })
-        }
-      })
-    },
-    barrageHide () {
-      if (this.lastId) {
-        this.$axios.post(urls.changeDanmuStatus, {id: this.lastId}).then(() => {})
-      }
-    },
     rate (val) {
       this.score = val
     },
@@ -209,6 +143,7 @@ export default {
 .danmu-out-btn {
   position: fixed;
   top: 9rem;
+  width: 9rem;
   z-index: 8;
   right: px2rem(20);
   transition: right 1s;
@@ -246,8 +181,7 @@ export default {
   }
 }
 .perform-data {
-  width: 100%;
-  background: url('../../../static/img/bg.png') repeat-y;
+  position: relative;
   .perform-item {
     position: relative;
     width: px2rem(700);
