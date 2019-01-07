@@ -34,3 +34,4 @@ job2:
         - sudo rm -rf lottery_front
         - fi
         - sudo cp -rf /home/gitlab-runner/builds/48368a1b/0/mobile/easy_front /data/choujiang
+        - sudo rsync -azhe ssh /data/choujiang/lottery_front/dist/ choujiang:/data/choujiang/
