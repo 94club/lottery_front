@@ -14,7 +14,7 @@
 import AliHead from '../../components/aliHead'
 import AliLoading from '../../components/aliLoading'
 import AliInput from '../../components/aliInput'
-import {translate, staffArr} from '../../config/util.js'
+import {translate} from '../../config/util.js'
 import urls from '../../config/urls.js'
 export default {
   data () {
@@ -73,7 +73,7 @@ export default {
           })
         }
       })
-    },
+    }
   }
 }
 </script>
