@@ -224,7 +224,6 @@ export default {
   }
   .ali-input-field {
     display: inline-block;
-    width: 70%;
     padding: px2rem(20) 0;
     margin-left: px2rem(40);
     border: none;

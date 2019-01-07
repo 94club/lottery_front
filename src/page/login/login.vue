@@ -27,7 +27,7 @@ import urls from '../../config/urls.js'
 export default {
   data () {
     return {
-      value: '123eveb-admin456',
+      value: '',
       clearable: {
         visible: true,
         blurHidden: true,
