@@ -6,7 +6,7 @@
         <input v-if="userInfo.role === 1" type="file" :class="'img-input' + index" @change="uploadFashionImg(item.id, index)">
         <span class="num">{{item.id}}号</span>
         <div class="trigle"></div>
-        <img v-if="item.imgSrc" :src="baseUrl + item.imgSrc">
+        <img v-if="item.imgSrc" :src="item.imgSrc">
         <p v-if="userInfo.role === 1" class="top-center"><span class="iconfont icon-add"></span>{{translate(70, lang)}}</p>
       </div>
     </div>
@@ -20,7 +20,7 @@
           <img src="../../../static/img/ctop.png" alt="">
         </div>
         <div class="middle" v-for="(item, index) in imgList" :key="index">
-          <span class="comment-num">{{translate(87, lang)}}{{item.id}}: </span><input class="input-radio" type="radio" name="radio" :value="item.id" v-model="commentId">
+          <span class="comment-num">{{translate(87, lang)}}{{item.id}}:</span><input class="input-radio" type="radio" name="radio" :value="item.id" v-model="commentId">
         </div>
         <div class="btn" @click="commitFashionComment">{{translate(79, lang)}}</div>
       </div>
@@ -35,6 +35,7 @@ import urls from '../../config/urls.js'
 import AliLoading from '../../components/aliLoading'
 import StarRating from '../../components/starRating'
 import {mapActions} from 'vuex'
+import canvasResize from 'canvas-resize'
 export default {
   data () {
     return {
@@ -80,19 +81,32 @@ export default {
     },
     uploadFashionImg (id, index) {
       let input = document.querySelector('.img-input' + index)
-      let formdata = new FormData()
-      formdata.append('imgFile', input.files[0])
-      formdata.append('id', id)
-      let config = {
-        headers: {
-          'Content-Type': 'multipart/form-data'
+      let self = this
+      canvasResize(input.files[0], {
+        crop: false,
+        quality: 0.9,
+        rotate: 0,
+        callback (baseStr) {
+          self.$axios.post(urls.uploadBase64, {baseStr, id}).then((res) => {
+            self.imgSrc = res.data
+            self.$toast({msg: translate(61, self.lang)})
+            self.getFashionImgList()
+          })
         }
-      }
-      this.$axios.post(urls.uploadFashionImg, formdata, config).then((res) => {
-        this.imgSrc = this.baseUrl + res.data
-        this.$toast({msg: translate(61, this.lang)})
-        this.getFashionImgList()
       })
+      // let formdata = new FormData()
+      // formdata.append('imgFile', input.files[0])
+      // formdata.append('id', id)
+      // let config = {
+      //   headers: {
+      //     'Content-Type': 'multipart/form-data'
+      //   }
+      // }
+      // this.$axios.post(urls.uploadFashionImg, formdata, config).then((res) => {
+      //   this.imgSrc = this.baseUrl + res.data
+      //   this.$toast({msg: translate(61, this.lang)})
+      //   this.getFashionImgList()
+      // })
     },
     boxHide () {
       this.commentBoxShow = false
@@ -252,10 +266,11 @@ export default {
       .comment-num {
         display: inline-block;
         width: px2rem(120);
-        height: px2rem(80);
-        line-height: px2rem(80);
+        height: px2rem(60);
+        line-height: px2rem(60);
+        vertical-align: sub;
         text-align: right;
-        margin-right: px2rem(20);
+        margin-right: px2rem(40);
         color: #fff;
         font-size: px2rem(32);
       }

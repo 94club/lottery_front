@@ -1,22 +1,19 @@
 <template>
-  <div class="baberrage-stage" v-show="isShow" ref="stage">
-    <div class="fix-img">
-      <img src="../../static/img/danmu.png" alt="">
-    </div>
+  <div class="baberrage-stage" ref="stage">
     <div class="baberrage-top">
       <div v-for="item in topQueue" :style="item.style" :key="item.id" class="baberrage-item" :class="item.barrageStyle">
         <!-- <div class="baberrage-avatar"><img :src="item.avatar"></div> -->
-        <div class="baberrage-msg">{{ item.msg }}</div>
+        <span class="baberrage-msg">{{ item.msg }}</span>
       </div>
     </div>
     <div v-for="(item, index) in barrageList" :style="item.style" :key="index"  class="baberrage-item" :class="item.barrageStyle">
       <!-- <div class="baberrage-avatar"><img :src="item.avatar"></div> -->
-      <div class="baberrage-msg">{{ item.msg }}</div>
+      <span class="baberrage-msg">{{ item.msg }}</span>
     </div>
     <div class="baberrage-bottom">
       <div v-for="item in bottomQueue" :key="item.id" :style="item.style" class="baberrage-item" :class="item.barrageStyle">
         <!-- <div class="baberrage-avatar"><img :src="item.avatar"></div> -->
-        <div class="baberrage-msg">{{ item.msg }}</div>
+        <span class="baberrage-msg">{{ item.msg }}</span>
       </div>
     </div>
   </div>
@@ -25,10 +22,6 @@
 export default {
   name: 'vue-baberrage',
   props: {
-    isShow: {
-      type: Boolean,
-      default: true
-    },
     barrageList: {
       type: Array,
       default () {

@@ -1,53 +1,62 @@
 <template>
-  <div class="login-page">
-    <ali-head :showBack="true" :pageTitle="translate(104, lang)"></ali-head>
-    <div class="pt54" :style="{textAlign: 'center'}">
-      <!-- <img src="../../../static/img/2019.png" alt=""> -->
-    </div>
+  <div class="perform">
+    <ali-head :pageTitle="translate(104, lang)" :showDrawer="true"></ali-head>
     <div class="danmu">
       <input class="danmu-text" type="text" placeholder="say something" v-model="danmu">
       <span class="danmu-btn" @click="sendBarrage">{{translate(88, lang)}}</span>
     </div>
+    <danmu
+      :barrageList = "barrageList"
+      :loop = "barrageLoop"
+      @barrageHide="barrageHide">
+    </danmu>
   </div>
 </template>
 <script>
 import AliHead from '../../components/aliHead'
-import AliLoading from '../../components/aliLoading'
-import AliInput from '../../components/aliInput'
+import Danmu from '../../components/danmu'
 import {translate} from '../../config/util.js'
 import urls from '../../config/urls.js'
 export default {
   data () {
     return {
-      value: '',
-      clearable: {
-        visible: true,
-        blurHidden: true,
-        isOk: false,
-        firstInfo: ''
-      }
+      danmu: '',
+      barrageList: [],
+      barrageLoop: false,
+      timer: '',
+      lastId: '',
+      canDanmu: true
     }
   },
   components: {
     AliHead,
-    AliLoading,
-    AliInput
+    Danmu
+  },
+  created () {
+    if (!this.userInfo) {
+      this.$router.replace({path: '/'})
+    } else {
+      this.timer = setInterval(() => {
+        this.getBarrage()
+      }, 1000 * 3)
+      this.getBarrage()
+    }
+  },
+  destroyed () {
+    clearInterval(this.timer)
   },
   computed: {
     lang () {
       return this.$store.state.lang
     },
-    prePath () {
-      return this.$store.state.actionFromPath
+    userInfo () {
+      return this.$store.state.userInfo
     },
-    loadingStatus () {
-      return this.$store.state.loadingStatus
+    baseUrl () {
+      return this.$store.state.baseUrl
     }
   },
   methods: {
-    translate (key, lang) {
-      return translate(key, lang)
-    },
     sendBarrage () {
       if (this.canDanmu) {
         this.$axios.post(urls.addDanmu, {msg: this.danmu}).then((res) => {
@@ -73,6 +82,14 @@ export default {
           })
         }
       })
+    },
+    barrageHide () {
+      if (this.lastId) {
+        this.$axios.post(urls.changeDanmuStatus, {id: this.lastId}).then(() => {})
+      }
+    },
+    translate (key, lang) {
+      return translate(key, lang)
     }
   }
 }
@@ -117,6 +134,83 @@ export default {
     border-radius: px2rem(8);
     border: 1px solid #999;
     box-sizing: border-box;
+  }
+}
+.perform-data {
+  position: relative;
+  .perform-item {
+    position: relative;
+    width: px2rem(700);
+    margin: px2rem(20) auto 0;
+    padding-bottom: px2rem(20);
+    background: #fff;
+     .trigle {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-top: px2rem(150) solid #c59cf8;
+      border-left: px2rem(150) solid transparent;
+    }
+    .num {
+      position: absolute;
+      z-index: 3;
+      right: px2rem(30);
+      top: px2rem(30);
+      font-size: px2rem(28);
+      color: #fff;
+    }
+    p {
+      width: 80%;
+      line-height: px2rem(60);
+      padding-left: px2rem(40);
+      color: #9f56f0;
+      font-size: px2rem(30);
+      span {
+        margin: 0 px2rem(20) 0 px2rem(40);
+      }
+    }
+    .mark{
+      position: absolute;
+      top: px2rem(200);
+      .text {
+        line-height: px2rem(60);
+        font-size: px2rem(30);
+        vertical-align: bottom;
+        margin: 0 px2rem(20) 0 px2rem(40);
+      }
+    }
+    .submit-mark {
+      display: inline-block;
+      width: px2rem(120);
+      height: px2rem(56);
+      margin-left: px2rem(40);
+      line-height: px2rem(56);
+      text-align: center;
+      background: #ffd552;
+      color: #fd8504;
+      border-radius: px2rem(8);
+      font-size: px2rem(26);
+    }
+    .comment-score {
+      display: inline-block;
+      margin-left: px2rem(40);
+      font-size: px2rem(26);
+      color: #9f56f0;
+    }
+  }
+}
+
+@keyframes box2Show {
+  0% {
+    top: 5%;
+    opacity: 0.6;
+  }
+  100% {
+    top: 10%;
+    opacity: 1;
   }
 }
 </style>

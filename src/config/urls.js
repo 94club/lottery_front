@@ -14,6 +14,7 @@ export default {
   uploadAvatar: '/user/uploadAvatar',
   getAllUser: '/user/getAllUser',
   uploadFashionImg: '/user/uploadFashionImg',
+  uploadBase64: '/user/uploadBase64',
   fashionImgAdd: '/user/fashionImgAdd',
   getFashionGradeList: '/user/getFashionGradeList',
   getFashionImgList: '/user/getFashionImgList',

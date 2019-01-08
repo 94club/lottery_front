@@ -571,7 +571,7 @@ const langCn = {
   4: '返回',
   5: '您的名称:',
   6: '请输入您的用户名',
-  7: '备注: 两个字母及以上的名称需要用中横杆" - "连接',
+  7: '注意: 请填写邀请函上的名称',
   8: '进入主界面',
   9: '请输入用户名',
   10: '登入受限，请寻找alistar求助',
@@ -668,7 +668,7 @@ const langCn = {
   101: '评分不能为0',
   102: '评论成功',
   103: '节目编号',
-  104: 'EVEB 聊天室'
+  104: '弹幕聊天室'
 }
 const langEn = {
   1: 'Lottery',
@@ -764,7 +764,7 @@ const langEn = {
   101: 'score should more than 0',
   102: 'comment successful',
   103: 'perform number',
-  104: 'EVEB Chat'
+  104: 'Barrage Chat'
 }
 
 function translate (key, lang) {

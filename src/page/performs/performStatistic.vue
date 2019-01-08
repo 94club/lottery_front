@@ -62,7 +62,7 @@ export default {
       return translate(key, lang)
     },
     refresh (fn) {
-      this.getFashionImgList(fn)
+      this.getPerformList(fn)
     },
     getPerformList (fn) {
       setTimeout(() => {

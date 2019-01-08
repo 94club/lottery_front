@@ -9,16 +9,16 @@
         <span class="trigle"></span>
         <span class="num">{{item.id}}</span>
         <p class="department">{{translate(96, lang)}}&nbsp;&nbsp;{{item.department}}</p>
-        <p class="perform-name ellipsis">{{translate(97, lang)}}&nbsp;&nbsp;{{item.performName}}</p>
-        <p class="join-people ellipsis">{{translate(98, lang)}}&nbsp;&nbsp;{{item.joinPeople}}</p>
+        <p class="perform-name">{{translate(97, lang)}}&nbsp;&nbsp;{{item.performName}}</p>
+        <p class="join-people">{{translate(98, lang)}}&nbsp;&nbsp;{{item.joinPeople}}</p>
         <span class="submit-mark" @click="commentByUser(item)">{{translate(79, lang)}}</span>
-        <span class="comment-score" v-if="gradeDetailList[index]">{{translate(77, lang)}}{{gradeDetailList[index]}}</span>
+        <span class="comment-score" v-if="gradeDetailList[index] && gradeDetailList[index].score">{{translate(77, lang)}}&nbsp;&nbsp;{{gradeDetailList[index].score}}</span>
       </div>
     </div>
     <div class="comment-box" v-if="commentBoxShow">
       <div class="mask" @click="boxHide"></div>
       <div class="box-content">
-        <div class="top">{{translate(76, lang)}}{{performId}}{{translate(80, lang)}}</div>
+        <div class="top-comment">{{translate(76, lang)}}{{performId}}{{translate(80, lang)}}</div>
         <star-rating :score= "score" :maxScore= "maxScore" @rate="rate"></star-rating>
         <div class="btn" @click="commitPerformComment">{{translate(79, lang)}}</div>
       </div>
@@ -128,10 +128,22 @@ export default {
         this.performList.map((item) => {
           item.gradeDetailList.map((scoreItem) => {
             if (scoreItem.username === this.userInfo.username) {
-              this.gradeDetailList.push(scoreItem.score)
+              this.gradeDetailList.push({id: item.id, score: scoreItem.score})
             }
           })
         })
+        let tempArr = []
+        for (let i = 0; i < this.performList.length; i++) {
+          for (let j = 0; j < this.gradeDetailList.length; j++) {
+            if (this.gradeDetailList[j].id === this.performList[i].id) {
+              tempArr[i] = {id: this.performList[i].id, score: this.gradeDetailList[j].score}
+              break
+            } else {
+              tempArr[i] = {id: this.performList[i].id, score: 0}
+            }
+          }
+        }
+        this.gradeDetailList = tempArr
         this.changeLoadingStatus(false)
       })
     }
@@ -140,44 +152,41 @@ export default {
 </script>
 <style lang="scss">
 @import '../../style/px2rem.scss';
-.danmu-out-btn {
-  position: fixed;
-  top: 9rem;
-  width: 9rem;
-  z-index: 8;
-  right: px2rem(20);
-  transition: right 1s;
-}
-.danmu {
-  position: fixed;
-  top: 4.4rem;
-  z-index: 6;
-  display: flex;
-  width: 100%;
-  background: #fff;
-  padding: px2rem(20) 0;
-  margin: 0 auto;
-  justify-content: space-around;
-  transition: left 1s;
-  &-text {
-    flex: 1;
-    height: px2rem(88);
-    font-size: px2rem(32);
-    padding-left: px2rem(20);
-    margin-left: px2rem(10);
-    border-radius: px2rem(8);
-    border: 1px solid #666;
-    box-sizing: border-box;
-  }
-  &-btn {
-    width: px2rem(100);
-    height: px2rem(88);
-    line-height: px2rem(88);
-    margin: 0 px2rem(10);
+.comment-box {
+  .box-content {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 104;
+    width: px2rem(632);
+    border-radius: 4px;
+    background: linear-gradient(0,#a779da,#ba91ea,#cfabfb);
+    animation: box2Show 1s ease;
     text-align: center;
-    border-radius: px2rem(8);
-    border: 1px solid #999;
-    box-sizing: border-box;
+    .top-comment {
+      text-align: center;
+      font-size: px2rem(32);
+      color: #fff;
+      height: px2rem(100);
+      line-height: px2rem(100);
+    }
+    .top-img {
+      margin-top: -3rem;
+      img {
+        width: 100%;
+      }
+    }
+    .btn {
+      width: px2rem(400);
+      height: px2rem(80);
+      margin: px2rem(20) auto px2rem(60);
+      line-height: px2rem(80);
+      font-size: px2rem(28);
+      background: linear-gradient(0,#f0e82d,#f6f25f,#fdfd9a);
+      color: #fd8504;
+      border-radius: px2rem(8);
+    }
   }
 }
 .perform-data {

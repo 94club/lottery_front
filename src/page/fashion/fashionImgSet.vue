@@ -1,6 +1,9 @@
 <template>
   <div class="fashionset-page">
     <ali-head :showBack="true" :pageTitle="translate(71, lang)" :showDrawer="true"></ali-head>
+    <div class="fix-img">
+        <img src="../../../static/img/bg.png" alt="">
+      </div>
     <div class="input-div pt54">
       <ali-input
         v-model="id"
@@ -55,19 +58,20 @@ export default {
       //   this.$toast({msg: '序号不能为空'})
       //   return
       // }
+      let postData
+      let url
       if (this.id) {
-        this.$store.dispatch('changeLoadingStatus', true)
-        this.$axios.post(urls.fashionImgAdd, {id: parseInt(this.id)}).then((res) => {
-          this.$store.dispatch('changeLoadingStatus', false)
-          this.$router.go(-1)
-        })
+        postData = {id: parseInt(this.id)}
+        url = urls.fashionImgAdd
       } else {
-        this.$store.dispatch('changeLoadingStatus', true)
-        this.$axios.post(urls.changeCommentStatus, {status: this.status, id: 1}).then((res) => {
-          this.$store.dispatch('changeLoadingStatus', false)
-          this.$router.go(-1)
-        })
+        postData = {status: this.status, id: 1}
+        url = urls.changeCommentStatus
       }
+      this.$store.dispatch('changeLoadingStatus', true)
+      this.$axios.post(url, postData).then((res) => {
+        this.$store.dispatch('changeLoadingStatus', false)
+        this.$router.push({path: '/fashion'})
+      })
     }
   },
   components: {

@@ -25,7 +25,7 @@
 import AliHead from '../../components/aliHead'
 import AliLoading from '../../components/aliLoading'
 import AliInput from '../../components/aliInput'
-import {translate, staffArr} from '../../config/util.js'
+import {translate} from '../../config/util.js'
 import urls from '../../config/urls.js'
 export default {
   data () {
@@ -43,6 +43,11 @@ export default {
     AliHead,
     AliLoading,
     AliInput
+  },
+  created () {
+    if (!this.prePath) {
+      this.$router.replace({path: '/'})
+    }
   },
   computed: {
     lang () {
@@ -64,30 +69,10 @@ export default {
         this.$toast({msg: this.translate(9, this.lang)})
         return
       }
-      this.value = this.value.trim()
-      // 判断用户名
-      if (this.value === '123eveb-admin456') {
-        this.isOk = true
-        this.firstInfo = {
-          username: '123eveb-admin456',
-          lang: 'cn'
-        }
-      } else {
-        staffArr.map((item, index) => {
-          if (item.username === this.value) {
-            this.isOk = true
-            this.firstInfo = staffArr[index]
-          }
-        })
-      }
       // 登录，跳转
-      if (this.isOk) {
-        if (this.lang !== this.firstInfo.lang) {
-          this.$toast({msg: this.translate(11, this.lang)})
-          return
-        }
+      if (this.value) {
         this.$store.dispatch('changeLoadingStatus', true)
-        this.$axios.post(urls.login, this.firstInfo).then((res) => {
+        this.$axios.post(urls.login, {username: this.value.trim()}).then((res) => {
           if (res.data) {
             this.$store.dispatch('changeLoadingStatus', false)
             localStorage.setItem('aliToken', res.data)
