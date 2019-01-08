@@ -3,7 +3,7 @@
     <ali-head :pageTitle="translate(18, lang)" :showDrawer="true" :showPerformStatistics="userInfo.role===1"></ali-head>
     <div class="perform-data pt44 pb1" v-if="performList.length > 0">
       <div class="fix-img">
-        <img src="../../../static/img/bg.png" alt="">
+        <img src="../../../static/img/bg.jpg" alt="">
       </div>
       <div class="perform-item" v-for="(item, index) in performList" :key="index">
         <span class="trigle"></span>

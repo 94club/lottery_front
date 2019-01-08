@@ -5,7 +5,7 @@
       <!-- <img src="../../../static/img/2019.png" alt=""> -->
     </div>
     <div class="fix-img">
-      <img src="../../../static/img/bg.png" alt="">
+      <img src="../../../static/img/bg.jpg" alt="">
     </div>
     <div class="input-div">
       <ali-input

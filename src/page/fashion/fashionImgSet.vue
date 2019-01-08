@@ -2,7 +2,7 @@
   <div class="fashionset-page">
     <ali-head :showBack="true" :pageTitle="translate(71, lang)" :showDrawer="true"></ali-head>
     <div class="fix-img">
-        <img src="../../../static/img/bg.png" alt="">
+        <img src="../../../static/img/bg.jpg" alt="">
       </div>
     <div class="input-div pt54">
       <ali-input

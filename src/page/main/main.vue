@@ -2,7 +2,7 @@
   <div class="main-page">
     <ali-head :langShow="true" :pageTitle="translate(91, lang)" @onLangChange="onLangChange"></ali-head>
     <div class="fix-img">
-      <img src="../../../static/img/bg.png" alt="">
+      <img src="../../../static/img/bg.jpg" alt="">
     </div>
     <div class="pt44" :style="{textAlign: 'center'}">
       <img :style="{width: '18rem', height: '18rem'}" src="../../../static/img/nianhui.png">

@@ -238,7 +238,7 @@ export default {
   width: px2rem(220);
   height: 100%;
   text-align: center;
-  background: url('/static/img/right.png') repeat-y;
+  background: url('/static/img/right.jpg') repeat-y;
   transition: right 1s;
   color: #fff;
 }
