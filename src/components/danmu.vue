@@ -202,7 +202,7 @@ export default {
       item.currentTime = timestamp
       item.time = 5
       item.speed = this.boxWidthVal / (item.time * 1000)
-      item.width = this.strlen(item.msg) * 9 + 150
+      item.width = this.strlen(item.msg) * 9 + 100
       if (item.type === 0) {
         item.left = this.boxWidthVal
         item.top = parseInt(Math.random() * this.boxHeightVal)

@@ -15,10 +15,6 @@
 import {translate} from '../../config/util.js'
 import AliHead from '../../components/aliHead'
 export default {
-  data () {
-    return {
-    }
-  },
   components: {
     AliHead
   },
