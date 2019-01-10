@@ -92,7 +92,7 @@ export default {
             self.imgSrc = res.data
             self.$toast({msg: translate(61, self.lang)})
             self.getFashionImgList()
-            this.changeLoadingStatus(false)
+            self.changeLoadingStatus(false)
           })
         }
       })
