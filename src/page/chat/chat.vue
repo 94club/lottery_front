@@ -1,5 +1,5 @@
 <template>
-  <div class="perform">
+  <div class="chat">
     <ali-head :pageTitle="translate(104, lang)" :showDrawer="true"></ali-head>
     <div class="danmu">
       <input class="danmu-text" type="text" placeholder="say something" v-model="danmu">
@@ -212,5 +212,11 @@ export default {
     top: 10%;
     opacity: 1;
   }
+}
+.chat {
+  width: 100%;
+  height: 100%;
+  background: url('../../../static/img/chat.jpg') no-repeat center top;
+  background-size: cover;
 }
 </style>
