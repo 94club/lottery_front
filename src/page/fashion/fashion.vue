@@ -80,6 +80,7 @@ export default {
       return translate(key, lang)
     },
     uploadFashionImg (id, index) {
+      this.changeLoadingStatus(true)
       let input = document.querySelector('.img-input' + index)
       let self = this
       canvasResize(input.files[0], {
@@ -91,6 +92,7 @@ export default {
             self.imgSrc = res.data
             self.$toast({msg: translate(61, self.lang)})
             self.getFashionImgList()
+            this.changeLoadingStatus(false)
           })
         }
       })
