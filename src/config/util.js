@@ -912,7 +912,7 @@ const langEn = {
   85: 'blublublu',
   86: 'blublublu',
   87: 'number',
-  88: 'blublublu',
+  88: 'send',
   89: 'blublublu',
   90: 'blublublu',
   91: 'EVEB ANNUAL DINNER',
