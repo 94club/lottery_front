@@ -1,175 +1,327 @@
 const staffArr = [
   {
     username: 'molley-lucena',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 1
   },
   {
-    username: 'kellie-o',
-    lang: 'en'
+    username: 'kellie-go',
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 2
   },
   {
     username: 'ele-sun',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 3
   },
   {
     username: 'laura-liu',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 4
   },
   {
     username: 'linda-suo',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 5
   },
   {
     username: 'anj-rosanes',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 6
   },
   {
     username: 'joey-ng',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 7
   },
   {
-    username: 'wS-tan',
-    lang: 'cn'
+    username: 'ws-tan',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 8
   },
   {
     username: 'grace-canon',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 9
   },
   {
     username: 'owen-luzaran',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 10
   },
   {
     username: 'amy-amido',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 11
   },
   {
     username: 'jeffrey-albay',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 12
   },
   {
     username: 'danilo-guillermo',
-    lang: 'en'
-  },
-  {
-    username: 'analiza-benongo',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 13
   },
   {
     username: 'marlon-broas',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 15
   },
   {
     username: 'isidro-antipas',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 16
   },
   {
     username: 'ranie-delfina',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 17
   },
   {
     username: 'lyn-pareno',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 18
   },
   {
     username: 'roma-discaya',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 19
   },
   {
-    username: 'evangeline-gani',
-    lang: 'en'
+    username: 'evangeline-ganio',
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 20
   },
   {
     username: 'irma-pazon',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 21
   },
   {
     username: 'eva-gayatgay',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 22
   },
   {
     username: 'rose-malabanan',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 23
   },
   {
     username: 'marloun-pacanan',
-    lang: 'en'
-  },
-  {
-    username: 'michael-mananquil',
-    lang: 'en'
-  },
-  {
-    username: 'romel-romel',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 24
   },
   {
     username: 'moon-chen',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 27
   },
   {
-    username: 'judy-bich',
-    lang: 'cn'
+    username: 'judy-nguyen',
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 28
   },
   {
     username: 'cheery-wang',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 29
   },
   {
     username: 'aimee-aringo',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 30
   },
   {
     username: 'arie-cabugnao',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 31
   },
   {
     username: 'hon-leong-cheng',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 32
   },
   {
     username: 'carlos-ni',
-    lang: 'cn'
+    lang: 'cn',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 33
   },
   {
     username: 'alva-salonga',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 34
   },
   {
     username: 'jessica-avila',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 35
   },
   {
     username: 'mary-ann-arawe',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 36
   },
   {
     username: 'kaye-ege',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 37
   },
   {
     username: 'vj-herrera',
-    lang: 'en'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 38
   },
   {
     username: 'grace-salonga',
-    lang: 'en'
-  },
-  {
-    username: 'isabel-logronio',
-    lang: 'en'
-  },
-  {
-    username: 'angelica-baltazar',
-    lang: 'en'
-  },
-  {
-    username: 'ariane-duran',
-    lang: 'en'
-  },
-  {
-    username: 'germaine-kong',
-    lang: 'cn'
+    lang: 'en',
+    avatar: '/public/img/avatar.jpg',
+    role: 0,
+    hadPrize: false,
+    hadFashionComment: false,
+    id: 39
   },
   {
     username: 'hamilton-wu',
@@ -275,6 +427,7 @@ const staffArr = [
     username: 'demas-shen',
     lang: 'cn'
   },
+
   {
     username: 'bruce-cao',
     lang: 'cn'
@@ -283,6 +436,7 @@ const staffArr = [
     username: 'ramon-uy',
     lang: 'cn'
   },
+  
   {
     username: 'bob-wu',
     lang: 'cn'
@@ -300,7 +454,7 @@ const staffArr = [
     lang: 'cn'
   },
   {
-    username: 'icey-wang',
+    username: 'icey-gu',
     lang: 'cn'
   },
   {
@@ -333,10 +487,6 @@ const staffArr = [
   },
   {
     username: 'afeng-wu',
-    lang: 'cn'
-  },
-  {
-    username: 'arvin-jing',
     lang: 'cn'
   },
   {
@@ -416,17 +566,18 @@ const staffArr = [
     lang: 'cn'
   },
   {
+    username: 'frank-peng',
+    lang: 'cn'
+  },
+  {
     username: 'esko-liao',
     lang: 'cn'
   },
   {
-    username: 'joseph',
+    username: 'joseph-liew',
     lang: 'cn'
   },
-  {
-    username: 'kathy-yang',
-    lang: 'cn'
-  },
+  
   {
     username: 'adam-yang',
     lang: 'cn'
@@ -444,9 +595,10 @@ const staffArr = [
     lang: 'cn'
   },
   {
-    username: 'frank-peng',
+    username: 'johnny-liu',
     lang: 'cn'
   },
+
   {
     username: 'luis-tan',
     lang: 'cn'
@@ -488,19 +640,7 @@ const staffArr = [
     lang: 'cn'
   },
   {
-    username: 'darcy-yu',
-    lang: 'cn'
-  },
-  {
     username: 'harry-fang',
-    lang: 'cn'
-  },
-  {
-    username: 'johnny-liu',
-    lang: 'cn'
-  },
-  {
-    username: 'kurt-jiang',
     lang: 'cn'
   },
   {
@@ -520,7 +660,7 @@ const staffArr = [
     lang: 'en'
   },
   {
-    username: 'jason-gU',
+    username: 'jason-gu',
     lang: 'cn'
   },
   {
@@ -544,15 +684,11 @@ const staffArr = [
     lang: 'cn'
   },
   {
-    username: 'paolo-agulto',
-    lang: 'en'
-  },
-  {
     username: 'kristine-tacdol',
     lang: 'en'
   },
   {
-    username: 'daven',
+    username: 'daven-dayana',
     lang: 'en'
   },
   {
@@ -561,6 +697,34 @@ const staffArr = [
   },
   {
     username: 'aidan-li',
+    lang: 'cn'
+  },
+  {
+    username: 'grace-salonga',
+    lang: 'cn'
+  },
+  {
+    username: 'ariane-duran',
+    lang: 'cn'
+  },
+  {
+    username: 'hannah',
+    lang: 'cn'
+  },
+  {
+    username: 'nicole',
+    lang: 'en'
+  },
+  {
+    username: 'anivia-li',
+    lang: 'cn'
+  },
+  {
+    username: 'bryan-blanquisco',
+    lang: 'cn'
+  },
+  {
+    username: 'tom-li',
     lang: 'cn'
   }
 ]
@@ -672,7 +836,7 @@ const langCn = {
 }
 const langEn = {
   1: 'Lottery',
-  2: 'Performs',
+  2: 'Performance',
   3: 'Login',
   4: 'back',
   5: 'name:',
@@ -688,8 +852,8 @@ const langEn = {
   15: 'blublublu',
   16: 'blublublu',
   17: 'blublublu',
-  18: 'Performs',
-  19: 'logout',
+  18: 'Performance',
+  19: 'Logout',
   20: 'blublublu',
   21: 'blublublu',
   22: 'blublublu',
@@ -724,7 +888,7 @@ const langEn = {
   51: 'blublublu',
   52: 'blublublu',
   53: 'blublublu',
-  54: 'Fashion Show',
+  54: 'Miss Ultra Rich',
   55: 'blublublu',
   56: 'blublublu',
   57: 'blublublu',
@@ -751,20 +915,20 @@ const langEn = {
   88: 'blublublu',
   89: 'blublublu',
   90: 'blublublu',
-  91: 'EVEB ANNUAL MEETING',
-  92: 'Please comment one',
-  93: 'vote not start',
+  91: 'EVEB ANNUAL DINNER',
+  92: 'Please vote for one contestant only',
+  93: 'Voting session have not started',
   94: 'You"ve already voted',
   95: 'reset',
-  96: 'perform department:',
-  97: 'perform name:',
-  98: 'perform staff:',
-  99: 'mark',
-  100: 'only can send once in 10 seconds',
-  101: 'score should more than 0',
-  102: 'comment successful',
-  103: 'perform number',
-  104: 'Barrage Chat'
+  96: 'Performers Department:',
+  97: 'Performance detail:',
+  98: 'Performer names:',
+  99: 'Score',
+  100: 'only can send every in 10 seconds',
+  101: 'vote should more than 1',
+  102: 'vote successful',
+  103: 'performance sequence',
+  104: 'Live Chat'
 }
 
 function translate (key, lang) {
